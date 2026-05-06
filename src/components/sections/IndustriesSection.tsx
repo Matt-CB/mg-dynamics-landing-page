@@ -1,18 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { Monitor, Cpu, Gamepad2, Building2, FlaskConical } from 'lucide-react';
-
-const INDUSTRIES = [
-  { name: 'Software', icon: Monitor, description: 'Building scalable digital solutions.' },
-  { name: 'Robotics', icon: Cpu, description: 'Engineering intelligent systems that move the world forward.' },
-  { name: 'Video Games', icon: Gamepad2, description: 'Creating immersive experiences that entertain and connect.' },
-  { name: 'Real Estate', icon: Building2, description: 'Developing spaces that inspire and create value.' },
-  { name: 'Research', icon: FlaskConical, description: 'Investing in ideas that shape the future.' },
-];
+import { useLanguage } from '../../LanguageContext';
 
 export function IndustriesSection() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
+
+  const INDUSTRIES = [
+    { name: t.industries.software.name, icon: Monitor, description: t.industries.software.desc },
+    { name: t.industries.robotics.name, icon: Cpu, description: t.industries.robotics.desc },
+    { name: t.industries.gaming.name, icon: Gamepad2, description: t.industries.gaming.desc },
+    { name: t.industries.realEstate.name, icon: Building2, description: t.industries.realEstate.desc },
+    { name: t.industries.research.name, icon: FlaskConical, description: t.industries.research.desc },
+  ];
 
   useEffect(() => {
     gsap.fromTo(
@@ -37,11 +39,11 @@ export function IndustriesSection() {
       <div className="z-10 text-center mb-24 w-full flex flex-col items-center">
         <p className="text-[10px] tracking-[0.3em] text-black/50 uppercase mb-6 flex items-center gap-4">
           <span className="w-8 h-[1px] bg-black/20"></span>
-          We operate across
+          {t.industries.subtitle}
           <span className="w-8 h-[1px] bg-black/20"></span>
         </p>
         <h2 className="font-serif text-[48px] leading-[1.1] tracking-[-0.02em] text-black">
-          multiple industries,<br />driven by innovation.
+          {t.industries.heading}
         </h2>
       </div>
 

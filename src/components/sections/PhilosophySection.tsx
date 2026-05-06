@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { motion } from 'motion/react';
+import { useLanguage } from '../../LanguageContext';
 
 export function PhilosophySection() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
   const title1Ref = useRef<HTMLHeadingElement>(null);
   const title2Ref = useRef<HTMLHeadingElement>(null);
@@ -67,14 +69,14 @@ export function PhilosophySection() {
         <div className="mb-32 md:mb-48 text-center max-w-5xl mx-auto">
           <p className="text-[10px] tracking-[0.3em] font-semibold uppercase text-black/40 mb-12 flex items-center justify-center gap-4">
             <span className="w-8 h-[1px] bg-black/20"></span>
-            Who We Are
+            {t.philosophy.whoWeAre}
             <span className="w-8 h-[1px] bg-black/20"></span>
           </p>
           <h2 ref={title1Ref} className="font-serif text-5xl md:text-[80px] lg:text-[100px] leading-[1.05] tracking-[-0.03em] font-normal text-black mb-4">
-            We don't just invest in companies.
+            {t.philosophy.heading1}
           </h2>
           <h2 ref={title2Ref} className="font-serif text-5xl md:text-[80px] lg:text-[100px] leading-[1.05] tracking-[-0.03em] font-normal">
-            We architect ecosystems.
+            {t.philosophy.heading2}
           </h2>
         </div>
 
@@ -82,62 +84,71 @@ export function PhilosophySection() {
         <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
           <div className="md:col-span-4">
             <h3 className="text-[10px] tracking-[0.2em] uppercase font-semibold text-black/50 mb-6">
-              The Convergence Point
+              {t.philosophy.title}
             </h3>
             <div className="w-12 h-[1px] bg-black/20 mb-8"></div>
           </div>
           
-          <div className="md:col-span-8 font-elegant text-xl md:text-2xl leading-[1.7] text-black/80 space-y-8">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+          <div className="md:col-span-8 font-elegant text-xl md:text-2xl leading-[1.7] text-black/80 space-y-12">
+            <motion.div
+              className="bg-white/10 backdrop-blur-2xl p-8 rounded-3xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1] }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              M&G is a global holding company engineered to build, acquire, and scale the systems that define the next era of industry. Headquartered in the United States and operating across international markets, we do not position ourselves as a traditional conglomerate.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              <p>{t.philosophy.para1}</p>
+            </motion.div>
+
+            <motion.div
+              className="bg-white/10 backdrop-blur-2xl p-8 rounded-3xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+              transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              We operate as a structured ecosystem of companies, designed to accelerate innovation across technology, robotics, software, real estate, entertainment, and frontier research.
-            </motion.p>
-            <motion.p 
-              className="text-black font-medium"
-              initial={{ opacity: 0, y: 20 }}
+              <p>{t.philosophy.para2}</p>
+            </motion.div>
+
+            <motion.div 
+              className="bg-white/20 backdrop-blur-3xl p-8 rounded-3xl border border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.08)]"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.215, 0.61, 0.355, 1] }}
+              transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              We believe industries are no longer separate, they are converging. And M&G exists to operate at that convergence point.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              <p className="text-black font-medium">{t.philosophy.para3}</p>
+            </motion.div>
+
+            <motion.div
+              className="bg-white/10 backdrop-blur-2xl p-8 rounded-3xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.215, 0.61, 0.355, 1] }}
+              transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
-              Each company within M&G functions independently, but is amplified by shared intelligence, capital efficiency, and a unified long-term vision. We are not building companies in isolation. We are building a network of interconnected capabilities designed to compound over time.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
+              <p>{t.philosophy.para4}</p>
+            </motion.div>
+
+            <motion.div
+              className="bg-white/10 backdrop-blur-2xl p-8 rounded-3xl border border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.05)]"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] }}
+              transition={{ duration: 1.2, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              Beyond building and scaling our own ecosystem, we actively invest in and search for new ventures, emerging founders, and early-stage entrepreneurs with the potential to shape the future. We exist to give new businesses and new entrepreneurs the opportunity to scale, grow, and compete in this new market era, where speed, intelligence, and execution define success.
-            </motion.p>
-            <motion.p 
-              className="text-black/70 italic"
-              initial={{ opacity: 0, y: 20 }}
+              <p>{t.philosophy.para5}</p>
+            </motion.div>
+
+            <motion.div 
+              className="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 shadow-[0_4px_16px_0_rgba(0,0,0,0.025)]"
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.215, 0.61, 0.355, 1] }}
+              transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              We believe the next generation of global companies will not be discovered in traditional systems, but accelerated through aligned capital, infrastructure, and strategic support. M&G positions itself as that catalyst.
-            </motion.p>
+              <p className="text-black/70 italic">{t.philosophy.para6}</p>
+            </motion.div>
           </div>
         </div>
 

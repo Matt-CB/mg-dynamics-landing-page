@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { useLanguage } from '../../LanguageContext';
 
 export function CTASection() {
+  const { t } = useLanguage();
   const containerRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -43,11 +45,11 @@ export function CTASection() {
       <div className="z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
         <p className="text-[10px] tracking-[0.3em] font-semibold uppercase text-white/40 mb-8 flex items-center justify-center gap-4">
           <span className="w-8 h-[1px] bg-white/20"></span>
-          Partner With Us
+          {t.cta.subtitle}
           <span className="w-8 h-[1px] bg-white/20"></span>
         </p>
         <h2 ref={textRef} className="font-serif text-5xl md:text-7xl lg:text-[100px] leading-[1.05] tracking-[-0.03em] font-normal mb-16">
-          Architect the future with M&G.
+          {t.cta.title}
         </h2>
         <button 
           ref={buttonRef}
@@ -56,7 +58,7 @@ export function CTASection() {
         >
           <div className="absolute inset-0 bg-white translate-y-[100%] group-hover:translate-y-0 transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] rounded-full"></div>
           <span className="relative z-10 text-xs tracking-[0.2em] uppercase font-medium group-hover:text-black transition-colors duration-500">
-            {copied ? 'Email Copied!' : 'Contact Us'}
+            {copied ? t.cta.copied : t.cta.button}
           </span>
         </button>
       </div>
